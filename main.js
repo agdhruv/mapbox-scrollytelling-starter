@@ -36,7 +36,7 @@ window.onload = function() {
         center: [82.8, 23.88],
         zoom: 4,
         bearing: 0,
-        pitch: 0,
+        pitch: 35,
     });
 }
 
