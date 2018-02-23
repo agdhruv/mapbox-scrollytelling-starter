@@ -2,26 +2,26 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWdkaHJ1diIsImEiOiJjamR5aXI1N2EwM3VvMndtb3o1N
 
 var chapters = {
     'part-1': {
-        center: [82.8, 23.88],
-        zoom: 3.5,
+        center: [77.766, 28.722],
+        zoom: 6.4,
         bearing: 0,
         pitch: 0,
     },
     'part-2': {
-        center: [77.1016, 28.6375],
-        zoom: 10,
+        center: [86.126, 23.924],
+        zoom: 5.9,
         bearing: 0,
         pitch: 0,
     },
     'part-3': {
-        center: [72.8561, 19.0022],
-        zoom: 11.1,
+        center: [79.207, 14.425],
+        zoom: 5.5,
         bearing: 0,
-        pitch: 52,
+        pitch: 0,
     },
     'part-4': {
-        center: [82.8, 23.88],
-        zoom: 4,
+        center: [75.839, 20.890],
+        zoom: 6.2,
         bearing: 0,
         pitch: 0,
     }

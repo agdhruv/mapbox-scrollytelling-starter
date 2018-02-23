@@ -5,12 +5,12 @@ html,body {
 }
 #map {
     position: fixed;
-    width:75%;
+    width:70%;
     height: 100%;
 }
 #features {
-    width: 25%;
-    margin-left: 75%;
+    width: 30%;
+    margin-left: 70%;
     font-family: sans-serif;
     overflow-y: scroll;
     background-color: #fafafa;
