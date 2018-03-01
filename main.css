@@ -1,13 +1,59 @@
-html,body { 
-    margin:0;
-    padding:0;
-    height:100%;
+* {
+    margin: 0px;
+    padding: 0px;
 }
-#map {
-    position: fixed;
-    width:70%;
-    height: 100%;
+
+div.container {
+    height: 100vh;
+    overflow-y: hidden;
+    display: flex;
 }
+    
+    div.extra-information {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        background: white;
+        width: 0%;
+        overflow: hidden;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    #map {
+        flex: 1 1 70%;
+    }
+
+    div.information {
+        flex: 1 1 30%;
+        background-color: red;
+        overflow-y: scroll;
+    }
+
+    div.information article {
+        display: flex;
+        align-items: center;
+        min-height: 100%;
+        opacity: 0.5;
+    }
+
+    div.information article.active {
+        opacity: 1;
+    }
+
+
+
+
+
+
+
+    /*#map {
+        position: fixed;
+        width:70%;
+        height: 100%;
+    }
+
 #features {
     width: 30%;
     margin-left: 70%;
@@ -29,4 +75,4 @@ section.active {
 section:last-child {
     border-bottom: none;
     margin-bottom: 600px;
-}
+}*/

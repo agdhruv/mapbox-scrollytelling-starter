@@ -1,36 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8' />
+    <meta charset='utf-8'/>
     <title>ScrollyTelling</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet'/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src='main.js'></script>
     <link href='main.css' rel='stylesheet' />
 </head>
 <body>
-<div id='map'></div>
-<div id='features'>
-    <section id='part-1' class='active'>
-        <h3>Introduction</h3>
-        <p>Details of the project.</p>
-<p>The project shows the Top 25 cities of India, with highest population</p>
-    </section>
-    <section id='part-2'>
-        <h3>Delhi</h3>
-        <img src='img/delhi.jpg' width='100%' />
-        <p>You can embed images and <strong>style</strong> <em>text</em> using html.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, excepturi quasi aut tempore commodi iure ipsum? Atque illum id odit veritatis voluptas vitae totam accusantium, recusandae deserunt cumque doloremque enim!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, non dolor distinctio eius, mollitia rerum doloremque aliquid esse natus vero autem deleniti dolores, maiores. Porro vitae sunt repellat velit eos!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus hic repudiandae ducimus omnis iste, molestias aspernatur adipisci et voluptas. Perferendis tempore sit non autem est quo amet, praesentium hic mollitia.</p>
-    </section>
-    <section id='part-3'>
-        <h3>Second insight</h3>
-        <p>You can tilt the camera using pitch.</p>
-    </section>
-    <section id='part-4'>
-        <h3>Conclusion</h3>
-        <p>Summary can zoom back to the original view.</p>
-    </section>
-</div>
+
+    <div class="container">
+
+        <div class="extra-information">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam pariatur inventore beatae voluptate rem eius deleniti vitae saepe unde. Saepe illum ea nobis magnam eum similique voluptate consectetur dignissimos corporis.
+        </div>
+
+        <div id='map'></div>
+
+        <div class="information" id="scroll">
+            
+            <article id="part-0" class="active">
+                <section>
+                    <h2>What is this about?</h2>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque esse harum libero asperiores voluptatibus distinctio explicabo similique commodi quos facilis impedit accusamus, cupiditate, mollitia eveniet excepturi! Harum, pariatur quae adipisci!
+                </section>
+            </article>
+
+            <article id="part-1">
+                <section>
+                    <h2>Part 1</h2>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque esse harum libero asperiores voluptatibus distinctio explicabo similique commodi quos facilis impedit accusamus, cupiditate, mollitia eveniet excepturi! Harum, pariatur quae adipisci!
+                </section>
+            </article>
+
+            <article id="part-2">
+                <section>
+                    <h2>Part 2</h2>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque esse harum libero asperiores voluptatibus distinctio explicabo similique commodi quos facilis impedit accusamus, cupiditate, mollitia eveniet excepturi! Harum, pariatur quae adipisci!
+                </section>
+            </article>
+
+            <article id="part-3">
+                <section>
+                    <h2>Part 3</h2>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque esse harum libero asperiores voluptatibus distinctio explicabo similique commodi quos facilis impedit accusamus, cupiditate, mollitia eveniet excepturi! Harum, pariatur quae adipisci!
+                </section>
+            </article>
+
+            <article id="part-4">
+                <section>
+                    <h2>Part 4</h2>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque esse harum libero asperiores voluptatibus distinctio explicabo similique commodi quos facilis impedit accusamus, cupiditate, mollitia eveniet excepturi! Harum, pariatur quae adipisci!
+                </section>
+            </article>
+
+        </div>
+
+    </div>
+    <!--
+
+    <div id='features'>
+
+        <section id='part-1' class='active'>
+            <h3>Introduction</h3>
+            <p>Details of the project.</p>
+            <p>The project shows the Top 25 cities of India, with highest population</p>
+        </section>
+
+        <section id='part-2'>
+            <h3>Delhi</h3>
+            <img src='img/delhi.jpg' width='100%' />
+            <p>You can embed images and <strong>style</strong> <em>text</em> using html.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, excepturi quasi aut tempore commodi iure ipsum? Atque illum id odit veritatis voluptas vitae totam accusantium, recusandae deserunt cumque doloremque enim!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, non dolor distinctio eius, mollitia rerum doloremque aliquid esse natus vero autem deleniti dolores, maiores. Porro vitae sunt repellat velit eos!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus hic repudiandae ducimus omnis iste, molestias aspernatur adipisci et voluptas. Perferendis tempore sit non autem est quo amet, praesentium hic mollitia.</p>
+        </section>
+
+        <section id='part-3'>
+            <h3>Second insight</h3>
+            <p>You can tilt the camera using pitch.</p>
+        </section>
+
+        <section id='part-4'>
+            <h3>Conclusion</h3>
+            <p>Summary can zoom back to the original view.</p>
+        </section>
+
+    </div> -->
+
 </body>
 </html>

@@ -1,6 +1,12 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWdkaHJ1diIsImEiOiJjamR5aXI1N2EwM3VvMndtb3o1NWFsOHJhIn0.wZx6N5iVJpMdNUC94DOZbg';
 
 var chapters = {
+    'part-0': {
+        center: [82.8, 23.88],
+        zoom: 4,
+        bearing: 0,
+        pitch: 0,
+    },
     'part-1': {
         center: [77.766, 28.722],
         zoom: 6.4,
@@ -27,6 +33,7 @@ var chapters = {
     }
 };
 
+
 var map;
 
 window.onload = function() {
@@ -36,28 +43,55 @@ window.onload = function() {
         center: [82.8, 23.88],
         zoom: 4,
         bearing: 0,
-        pitch: 35,
+        pitch: 0,
     });
 }
 
-// On every scroll event, check which element is on screen
-window.onscroll = function() {
-    var chapterNames = Object.keys(chapters);
-    console.log(chapterNames);
-    for (var i = 0; i < chapterNames.length; i++) {
-        var chapterName = chapterNames[i];
-        if (isElementOnScreen(chapterName)) {
-            setActiveChapter(chapterName);
-            break;
-        }
-    }
-};
+$(document).ready(function(){
 
-var activeChapterName = 'part-1';
+    // On every scroll event, check which element is on screen
+    $('div#scroll').on('scroll', function() {
+        var chapterNames = Object.keys(chapters);
+
+        for (var i = 0; i < chapterNames.length; i++) {
+            var chapterName = chapterNames[i];
+            if (isElementOnScreen(chapterName)) {
+                setActiveChapter(chapterName);
+                break;
+            }
+        }
+    });
+
+});
+
+var activeChapterName = 'part-0';
+var left_out = false;
+
 function setActiveChapter(chapterName) {
     if (chapterName === activeChapterName) return;
 
     map.flyTo(chapters[chapterName]);
+
+    if ((!left_out) && (chapterName !== 'chapter-0')) {
+        // the left panel comes in
+        $('.extra-information').show().animate({
+            width: '20%'
+        });
+        // simultaneously, the map is pushed to the right
+        $('#map').animate({
+            'margin-left': '20%'
+        });
+    }
+    else {
+        // the left panel goes back
+        $('.extra-information').show().animate({
+            width: '20%'
+        });
+        // simultaneously, the map is pushed back to the left
+        $('#map').animate({
+            'margin-left': '20%'
+        });
+    }
 
     document.getElementById(chapterName).setAttribute('class', 'active');
     document.getElementById(activeChapterName).setAttribute('class', '');
@@ -66,7 +100,15 @@ function setActiveChapter(chapterName) {
 }
 
 function isElementOnScreen(id) {
-    var element = document.getElementById(id);
-    var bounds = element.getBoundingClientRect();
-    return bounds.top < window.innerHeight && bounds.bottom > 0;
+    var elem = $(`#${id}`);
+    var elementTop = elem.offset().top;
+    var elementBottom = elementTop + elem.outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+
+    return elementTop < viewportBottom && elementBottom > viewportTop;
 }
+
+
+
+
