@@ -61,24 +61,63 @@ window.onload = function() {
         
     // });
 
-    map.on('click', 'population-top-25', function (e) {
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        var place = e.features[0].properties.city;
-        var pop_2011 = e.features[0].properties.pop_2011;
-        var pop_2001 = e.features[0].properties.pop_2001;
+    // Toggle buttons to hide and show layers
+    var toggleableLayerIds = [ 'Population 2001', 'Population 2011' ];
 
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
+    for (var i = 0; i < toggleableLayerIds.length; i++) {
+        var id = toggleableLayerIds[i];
 
-        new mapboxgl.Popup({closeOnClick: true})
-            .setLngLat(coordinates)
-            .setHTML(`<h4>${place}</h4><h5>Population in 2001: ${pop_2001}</h5><h5>Population in 2011: ${pop_2011}</h5>`)
-            .addTo(map);
-    });
+        map.on('click', id, function (e) {
+                                    
+            var coordinates = e.features[0].geometry.coordinates.slice();
+            var place = e.features[0].properties.city;
+            var pop_2011 = e.features[0].properties.pop_2011;
+            var pop_2001 = e.features[0].properties.pop_2001;
+
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+
+            new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(`<h4>${place}</h4><h5>${id}: ${pop_2001}</h5><h5>Population in 2011: ${pop_2011}</h5>`)
+                .addTo(map);
+        });
+
+    }
+
+
+
+    for (var i = 0; i < toggleableLayerIds.length; i++) {
+        var id = toggleableLayerIds[i];
+
+        var link = document.createElement('a');
+        link.href = '#';
+        link.className = 'active';
+        link.textContent = id;
+
+        link.onclick = function (e) {
+            var clickedLayer = this.textContent;
+            e.preventDefault();
+            e.stopPropagation();
+
+            var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+            if (visibility === 'visible') {
+                map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+                this.className = '';
+            } else {
+                this.className = 'active';
+                map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+            }
+        };
+
+        var layers = document.getElementById('menu');
+        layers.appendChild(link);
+    }
 }
 
 $(document).ready(function(){
@@ -95,6 +134,9 @@ $(document).ready(function(){
             }
         }
     });
+
+
+
 
 });
 

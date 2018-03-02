@@ -24,6 +24,7 @@ div.container {
     }
 
     .map {
+        position: relative;
         flex: 1 1 70%;
     }
 
@@ -81,6 +82,60 @@ span.purple-underline:after {
     left: 0px;
 }
 
+/* Toggle Interactions - CSS from docs */
 
+#menu {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    right: 10px;
+    border-radius: 3px;
+    width: 120px;
+    border: 1px solid #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#menu a {
+    font-size: 13px;
+    color: #404040;
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+#menu a:last-child {
+    border: none;
+}
+
+#menu a:hover {
+    background-color: #f8f8f8;
+    color: #404040;
+}
+
+#menu a.active {
+    color: #ffffff;
+    transition: 0.2s background-color linear;
+}
+
+#menu a:first-child.active {
+    background-color: rgba(52, 129, 223, 0.95);
+}
+
+#menu a:first-child.active:hover {
+    background-color: rgb(52, 129, 223);
+}
+
+#menu a:nth-child(2).active {
+    background-color: rgba(243, 68, 68, 0.95);
+}
+
+#menu a:nth-child(2).active:hover {
+    background-color: rgb(243, 68, 68);
+}
 
 
