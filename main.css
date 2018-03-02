@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Merriweather');
+
 * {
     margin: 0px;
     padding: 0px;
@@ -21,13 +23,17 @@ div.container {
         box-sizing: border-box;
     }
 
-    #map {
+    .map {
         flex: 1 1 70%;
+    }
+
+    #map {
+        height: 100%;
+        width: 100%;
     }
 
     div.information {
         flex: 1 1 30%;
-        background-color: red;
         overflow-y: scroll;
     }
 
@@ -36,43 +42,45 @@ div.container {
         align-items: center;
         min-height: 100%;
         opacity: 0.5;
+        background: #eaeaea;
     }
+        
+        div.information article section {
+            box-sizing: border-box;
+            padding: 0 5%;
+            line-height: 1.4;
+            font-family: 'Lato', sans-serif;
+            color: #717171;
+            font-size: 18px;
+        }
+
+        div.information article section h2 {
+            font-family: 'Merriweather', serif;
+            color: #5e16e2;
+            margin-bottom: 3%;
+        }
 
     div.information article.active {
+        transition: 0.2s linear opacity;
         opacity: 1;
     }
 
+/* Helper classes */
 
-
-
-
-
-
-    /*#map {
-        position: fixed;
-        width:70%;
-        height: 100%;
-    }
-
-#features {
-    width: 30%;
-    margin-left: 70%;
-    font-family: sans-serif;
-    overflow-y: scroll;
-    background-color: #fafafa;
+span.purple-underline {
+    position: relative;
 }
-section {
-    padding:  25px 25px 200px 25px;
-    line-height: 25px;
-    border-bottom: 1px solid #ddd;
-    opacity: 0.25;
-    font-size: 13px;
-    min-height: 75%;
+
+span.purple-underline:after {
+    content: "";
+    position: absolute;
+    height: 1.5px;
+    width: 100%;
+    background: #5e16e2;
+    top: 22px;
+    left: 0px;
 }
-section.active {
-    opacity: 1;
-}
-section:last-child {
-    border-bottom: none;
-    margin-bottom: 600px;
-}*/
+
+
+
+
