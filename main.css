@@ -61,6 +61,10 @@ div.container {
             margin-bottom: 3%;
         }
 
+            div.information article section ul li {
+                margin-left: 20px;
+            }
+
     div.information article.active {
         transition: 0.2s linear opacity;
         opacity: 1;
@@ -75,7 +79,7 @@ span.purple-underline {
 span.purple-underline:after {
     content: "";
     position: absolute;
-    height: 1.5px;
+    height: 2px;
     width: 100%;
     background: #5e16e2;
     top: 22px;
