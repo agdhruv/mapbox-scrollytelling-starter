@@ -73,6 +73,12 @@ window.onload = function() {
             var place = e.features[0].properties.city;
             var pop_2011 = e.features[0].properties.pop_2011;
             var pop_2001 = e.features[0].properties.pop_2001;
+            var city_area = e.features[0].properties.area;
+
+            var density_2001 = pop_2001/city_area;
+            density_2001 = density_2001.toFixed(2);
+            var density_2011 = pop_2011/city_area;
+            density_2011 = density_2011.toFixed(2);
 
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
@@ -83,13 +89,10 @@ window.onload = function() {
 
             new mapboxgl.Popup()
                 .setLngLat(coordinates)
-                .setHTML(`<h4>${place}</h4><h5>${id}: ${pop_2001}</h5><h5>Population in 2011: ${pop_2011}</h5>`)
+                .setHTML(`<h4>${place}</h4><h5>Population in 2001: <span class="font-blue">${pop_2001}</span></h5><h5>Population Density (2001): <span class="font-blue">${density_2001}</span> people/sq.KM</h5><h5>Population in 2011: <span class="font-red">${pop_2011}</span></h5><h5>Population Desnsity (2011): <span class="font-red">${density_2011}</span> people/sq.KM</h5>`)
                 .addTo(map);
         });
-
     }
-
-
 
     for (var i = 0; i < toggleableLayerIds.length; i++) {
         var id = toggleableLayerIds[i];
