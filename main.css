@@ -83,6 +83,11 @@ div.container {
         padding: 5px;
     }
 
+a {
+    text-decoration: none;
+    color: #5e16e2;
+}
+
 /* Helper classes */
 
 span.purple-underline {
@@ -105,6 +110,10 @@ span.font-blue {
 
 span.font-red {
     color: rgb(243, 68, 68);
+}
+
+span.bold {
+    font-weight: 800;
 }
 
 /* Toggle Interactions - CSS from docs */
